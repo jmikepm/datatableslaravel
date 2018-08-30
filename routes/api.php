@@ -21,5 +21,7 @@ Route::get('users', function(){
 	// return App\User::all();
 	return datatables()
 	->eloquent(App\User::query())
+	->addColumn('btn', 'actions')
+	->rawColumns(['btn'])
 	->toJson();
 });
